@@ -1,0 +1,18 @@
+.background {
+    background-image: url('../assets/backgroundimg.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.form-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background: rgba(61, 61, 61, 0.48);
+}

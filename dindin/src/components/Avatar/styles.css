@@ -1,0 +1,15 @@
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 41px;
+    right: 100px;
+    color: #fff;
+    /* gap: .7rem; */
+}
+
+.avatar span {
+    margin-right: 10px;
+}

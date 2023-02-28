@@ -1,0 +1,81 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 32px;
+    width: 513px;
+
+    background-color: #fff;
+}
+
+form h1 {
+    color: #7978D9;
+    margin-bottom: 1rem;
+}
+
+form>div {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    width: 100%;
+    color: #484848;
+}
+
+form input,
+form select {
+    height: 48px;
+    background: #FFFFFF;
+    border: 1px solid #555555;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-bottom: 1rem;
+    text-indent: 1rem;
+    font-size: 1rem;
+}
+
+form select option {
+    color: #484848;
+}
+
+form button {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 14px;
+    height: 48px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    background: #7978D9;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #6765db;
+}
+
+form p {
+    cursor: pointer;
+    margin-bottom: 1rem;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    color: #7B61FF;
+}
+
+form>span {
+    position: absolute;
+    bottom: 1rem;
+    color: red;
+}
+
+form>img {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}

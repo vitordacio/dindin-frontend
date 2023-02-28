@@ -1,0 +1,51 @@
+.signin {
+
+
+    gap: 100px;
+    padding: 100px;
+}
+
+.signin>div {
+    align-items: flex-start;
+
+    width: 50%;
+    height: 100%;
+}
+
+.signin-description h1 {
+    font-weight: 700;
+    /* font-size: 52px; */
+    margin-bottom: 33px;
+    color: #FFFFFF;
+}
+
+.signin-description h1 span {
+    color: #7978D9;
+}
+
+.signin-description p {
+    font-weight: 400;
+    /* font-size: 28px; */
+    margin-bottom: 43px;
+    color: #FFFFFF;
+}
+
+.signin-description button {
+    cursor: pointer;
+
+    width: 284px;
+    height: 48px;
+
+    font-weight: 700;
+    font-size: 14px;
+
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    background-color: #7978D9;
+}
+
+.signin-description button:hover {
+    background: #6765db;
+
+}

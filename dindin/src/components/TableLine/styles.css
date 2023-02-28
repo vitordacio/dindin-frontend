@@ -1,0 +1,38 @@
+.delete-item {
+
+    position: absolute;
+    top: 58px;
+    right: 20px;
+    z-index: 1;
+
+    /* min-width: 150px; */
+    /* height: 53px; */
+
+    padding: 7px 15px;
+    background: #E4F2FD;
+    border-radius: 4px;
+    border: 1px solid black;
+    gap: 8px;
+}
+
+.delete-buttons {
+    gap: 1rem;
+}
+
+.delete-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    padding: 1rem;
+    width: 37px;
+    height: 15px;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+}
+
+.delete-buttons button:hover {
+    transform: scale(1.05);
+}
