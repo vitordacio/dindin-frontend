@@ -50,7 +50,6 @@ const RegisterForm = (props) => {
             setNewCategory(formatedCategory.id)
         }
 
-
         setFormatedForm({
             ...form,
             valor: newValue,
@@ -71,7 +70,6 @@ const RegisterForm = (props) => {
 
         if (!add) {
             try {
-
                 await api.put(`/transacao/${transiction.id}`, formatedForm, { headers: { 'Authorization': `Bearer ${token}` } })
 
                 setRegisterForm(false)
@@ -82,7 +80,6 @@ const RegisterForm = (props) => {
         }
 
         try {
-
             await api.post('/transacao', formatedForm, { headers: { 'Authorization': `Bearer ${token}` } })
 
             setRegisterForm(false)
@@ -116,8 +113,6 @@ const RegisterForm = (props) => {
                     <input type='date' name='data' value={form.data} onChange={(e) => handleForm(e)} />
                     <label>Descrição</label>
                     <input type='text' name='descricao' value={form.descricao} onChange={(e) => handleForm(e)} />
-
-
                 </div>
                 <button>Confirmar</button>
                 {register && <span>{register}</span>}

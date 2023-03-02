@@ -3,21 +3,16 @@ import { useEffect, useState } from 'react'
 import './styles.css'
 
 const Filters = (props) => {
-    const { setTransictions, categories, transictions } = props
-
+    const { setFiltering, filtering, setTransictions, categories, transictions } = props
 
     const [originalTransictions, setOriginalTransictions] = useState()
     const [filters, setFilters] = useState([])
-
-
-
 
     const handleColor = (a) => {
         return filters.find((x) => x === a)
     }
 
     const handleFilter = () => {
-
         const a = transictions.filter((transiction) => {
             for (let i of filters) {
                 if (transiction.categoria_id === i) return transiction
@@ -34,13 +29,19 @@ const Filters = (props) => {
 
     useEffect(() => {
         setOriginalTransictions(transictions)
-    }, [])
+        setFiltering(true)
+
+        return () => {
+            setFiltering(false)
+        }
+    }, [filtering])
 
     return (
         <div className='filters'>
             <h2>Categoria</h2>
             <div className='filters-options'>
-                {categories &&
+                {
+                    categories &&
                     categories.map((category) =>
                         <div key={category.id}
                             onClick={() => {
@@ -54,7 +55,7 @@ const Filters = (props) => {
             </div>
             <div className='filters-buttons'>
                 <button onClick={handleClean}>Limpar Filtros</button>
-                <button style={{ backgroundColor: '#7978D9', color: '#fff' }} onClick={handleFilter}>Aplicar Filtros</button>
+                <button style={{ backgroundColor: '#7978D9', color: '#fff' }} onClick={() => handleFilter()}>Aplicar Filtros</button>
             </div>
         </div>
     )

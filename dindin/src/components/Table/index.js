@@ -3,12 +3,9 @@ import orderby from '../../assets/orderby.svg'
 import TableLine from '../TableLine/index'
 import { useState } from 'react'
 
-
 const Table = (props) => {
     const { categories, transictions } = props
     const [sort, setSort] = useState(true)
-
-
 
     return (
         <div className='table'>

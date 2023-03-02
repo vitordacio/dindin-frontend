@@ -1,18 +1,15 @@
 .delete-item {
-
     position: absolute;
     top: 58px;
     right: 20px;
     z-index: 1;
 
-    /* min-width: 150px; */
-    /* height: 53px; */
-
     padding: 7px 15px;
-    background: #E4F2FD;
-    border-radius: 4px;
-    border: 1px solid black;
     gap: 8px;
+
+    border-radius: 4px;
+    background: #E4F2FD;
+    border: 1px solid black;
 }
 
 .delete-buttons {
@@ -28,6 +25,7 @@
     padding: 1rem;
     width: 37px;
     height: 15px;
+
     border-radius: 4px;
     border: none;
     color: #fff;

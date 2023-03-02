@@ -1,36 +1,26 @@
 .resume {
     padding: 26px 33px;
-    /* border: 1px solid black; */
+    margin-bottom: 17px;
+
     color: #2F2F2F;
     background-color: #FAFAFA;
-    margin-bottom: 17px;
 }
 
 .resume h1 {
     font-weight: 700;
     font-size: 18px;
 
-
     margin-bottom: 23px;
 }
 
 .resume label {
     width: 100%;
-    /* background-color: red; */
 }
-
-/* .resume span {
-    margin-left: 10px;
-} */
 
 .resume-info {
     display: flex;
+
     gap: 10px;
-    /* border-bottom: 1px solid #EAEAEA; */
-
-    /* padding-bottom: 17px; */
-
-    /* border: 1px solid green; */
 }
 
 .resume-info>div {

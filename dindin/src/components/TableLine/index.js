@@ -17,7 +17,6 @@ const TableLine = (props) => {
         return categories.find((category) => category.id === transiction.categoria_id).descricao
     }
 
-
     const handleDay = () => {
         const day = new Date(transiction.data).getDay()
         if (day === 0) return 'Domingo'
@@ -40,7 +39,6 @@ const TableLine = (props) => {
         }
     }
 
-
     return (
         <ul style={{ position: 'relative' }}>
             <li style={{ minWidth: '100px', fontWeight: '700' }}>{date}</li>
@@ -53,16 +51,21 @@ const TableLine = (props) => {
                 <img className='pointer' src={erase} alt='erase' onClick={() => setDeleteItem(true)} />
             </li>
 
-            {registerForm &&
-                <RegisterForm transiction={transiction} categories={categories} setRegisterForm={setRegisterForm} />}
-            {deleteItem &&
+            {
+                registerForm &&
+                <RegisterForm transiction={transiction} categories={categories} setRegisterForm={setRegisterForm} />
+            }
+
+            {
+                deleteItem &&
                 <div className='delete-item flex-center column'>
                     <p>Apagar item?</p>
                     <div className='delete-buttons flex-center'>
                         <button style={{ backgroundColor: '#3A9FF1' }} onClick={handleDelete}>Sim</button>
                         <button style={{ backgroundColor: '#FF576B' }} onClick={() => setDeleteItem(false)}>Não</button>
                     </div>
-                </div>}
+                </div>
+            }
         </ul>
     )
 }

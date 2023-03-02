@@ -1,18 +1,17 @@
 .type {
     display: flex;
     flex-direction: row;
+
     height: 56px;
     width: 100%;
-    /* border: 1px solid black; */
     margin-bottom: 1rem;
 }
 
 .type>div {
-    /* border: 1px solid red; */
     font-weight: 700;
     font-size: 14px;
-    color: #fff;
     width: 100%;
+
+    color: #fff;
     border-radius: 5px;
-    /* width: 50%; */
 }

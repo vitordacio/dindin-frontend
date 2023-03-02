@@ -11,9 +11,9 @@ const ProtectedRoutes = ({ redirectTo }) => {
 }
 
 const MainRoutes = () => {
-
     return (
         <Routes>
+
             <Route path='/'>
                 <Route path='/' element={<SignIn />} />
                 <Route path='/login' element={<SignIn />} />
@@ -24,6 +24,7 @@ const MainRoutes = () => {
             </Route>
 
             <Route path='/signup' element={<SignUp />} />
+
         </Routes>
     )
 }

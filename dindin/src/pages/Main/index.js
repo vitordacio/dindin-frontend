@@ -15,8 +15,7 @@ const Main = () => {
     const [user, setUser] = useState({})
     const [categories, setCategories] = useState([])
     const [transictions, setTransictions] = useState([])
-
-
+    const [filtering, setFiltering] = useState(false)
 
     const handleMain = async () => {
         const token = getItem('token')
@@ -36,8 +35,10 @@ const Main = () => {
     }
 
     useEffect(() => {
-        handleMain()
-    }, [user, transictions])
+        if (filtering) return
+
+        if (!filtering) handleMain()
+    }, [user, transictions, filtering])
 
     return (
         <div className='container'>
@@ -50,7 +51,9 @@ const Main = () => {
                     <span>Filtrar</span>
                 </div>
 
-                {openFilter && <Filters setTransictions={setTransictions} transictions={transictions} categories={categories} />}
+                {
+                    openFilter && <Filters setFiltering={setFiltering} filtering={filtering} setTransictions={setTransictions} transictions={transictions} categories={categories} />
+                }
 
                 {
                     categories.length
@@ -58,7 +61,7 @@ const Main = () => {
                         <div style={{ height: '100%' }} className='flex-center'>
                             <Table transictions={transictions} categories={categories} />
                             <div className='resume-container'>
-                                <Resume />
+                                <Resume transictions={transictions} />
                                 <AddRegister categories={categories} />
                             </div>
                         </div>

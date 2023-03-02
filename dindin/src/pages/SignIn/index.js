@@ -28,7 +28,6 @@ const SignIn = () => {
         } catch (error) {
             return setError(error.response.data.mensagem)
         }
-
     }
 
     useEffect(() => {

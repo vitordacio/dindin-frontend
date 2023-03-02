@@ -10,8 +10,7 @@ const Avatar = ({ user }) => {
     const navigate = useNavigate()
     const [editProfile, setEditProfile] = useState(false)
 
-    const handleLogout = (e) => {
-        // e.stopPropagation()
+    const handleLogout = () => {
         removeItem('token')
         navigate('/login')
     }
@@ -23,7 +22,7 @@ const Avatar = ({ user }) => {
             {user && <div className='avatar'>
                 <img className='pointer' src={avatar} alt='avatar' onClick={() => setEditProfile(true)} />
                 <span>{user.nome}</span>
-                <img className='pointer' src={logout} alt='logout' onClick={(e) => handleLogout(e)} />
+                <img className='pointer' src={logout} alt='logout' onClick={() => handleLogout()} />
             </div>}
             {editProfile && <EditProfile setEditProfile={setEditProfile} />}
         </>

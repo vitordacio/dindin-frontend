@@ -3,7 +3,7 @@ import './styles.css'
 import api from '../../services/api'
 import { getItem } from '../../utils/storage'
 
-const Resume = () => {
+const Resume = ({ transictions }) => {
     const [extract, setExtract] = useState()
 
     const handleTransictions = async () => {
@@ -18,8 +18,7 @@ const Resume = () => {
 
     useEffect(() => {
         handleTransictions()
-
-    }, [extract])
+    }, [extract, transictions])
 
     return (
         <>
