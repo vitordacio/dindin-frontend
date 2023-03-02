@@ -50,13 +50,6 @@ const RegisterForm = (props) => {
             setNewCategory(formatedCategory.id)
         }
 
-        // if (valor && data && categoria_id) {
-        //     const formatedValue = Number(valor).toFixed(2)
-        //     setNewValue(Number(formatedValue.split('.')[0] + formatedValue.split('.')[1]))
-
-        //     const formatedCategory = categories.find((category) => category.descricao === categoria_id)
-        //     setNewCategory(formatedCategory.id)
-        // }
 
         setFormatedForm({
             ...form,

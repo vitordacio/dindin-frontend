@@ -14,7 +14,8 @@ const Main = () => {
     const [openFilter, setOpenFilter] = useState(false)
     const [user, setUser] = useState({})
     const [categories, setCategories] = useState([])
-    const [getTransitions, setGetTransitions] = useState()
+    const [transictions, setTransictions] = useState([])
+
 
 
     const handleMain = async () => {
@@ -25,41 +26,47 @@ const Main = () => {
 
             const { data: category } = await api.get('/categoria', { headers: { 'Authorization': `Bearer ${token}` } })
             setCategories(category)
+
+            const { data: transictions } = await api.get('/transacao', { headers: { 'Authorization': `Bearer ${token}` } })
+            setTransictions(transictions)
+
         } catch (error) {
             console.log(error)
         }
     }
 
-
     useEffect(() => {
         handleMain()
-    }, [])
+    }, [user, transictions])
 
     return (
-        <>
-            {(user, categories) &&
-                <div className='container'>
-                    <img src={logo} alt='logo' />
-                    <Avatar user={user} />
-                    <div className='top' />
-                    <div className='main column'>
-                        <div className='filter flex-center' onClick={() => setOpenFilter(!openFilter)}>
-                            <img src={filter} alt='filter' />
-                            <span>Filtrar</span>
-                        </div>
-                        {openFilter && <Filters categories={categories} />}
+        <div className='container'>
+            <img src={logo} alt='logo' />
+            <Avatar user={user} />
+            <div className='top' />
+            <div className='main column'>
+                <div className='filter flex-center' onClick={() => setOpenFilter(!openFilter)}>
+                    <img src={filter} alt='filter' />
+                    <span>Filtrar</span>
+                </div>
 
+                {openFilter && <Filters setTransictions={setTransictions} transictions={transictions} categories={categories} />}
+
+                {
+                    categories.length
+                        ?
                         <div style={{ height: '100%' }} className='flex-center'>
-                            {categories && <Table setGetTransitions={setGetTransitions} categories={categories} />}
-
+                            <Table transictions={transictions} categories={categories} />
                             <div className='resume-container'>
-                                <Resume getTransitions={getTransitions} />
-                                {categories && <AddRegister categories={categories} />}
+                                <Resume />
+                                <AddRegister categories={categories} />
                             </div>
                         </div>
-                    </div>
-                </div>}
-        </>
+                        :
+                        ''
+                }
+            </div>
+        </div>
     )
 }
 

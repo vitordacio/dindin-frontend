@@ -22,11 +22,14 @@
 
 .table ul li {
     display: flex;
+    /* flex-direction: column; */
+    text-align: center;
     align-items: center;
     justify-content: center;
     gap: .3rem;
     width: 100%;
     list-style: none;
+    /* background-color: red; */
     /* border: 1px solid pink; */
     font-family: 'Lato', sans-serif;
     /* line-height: 1.5rem; */
@@ -40,5 +43,6 @@
     /* font-size: 1rem; */
     height: 1rem;
     width: 1rem;
+    /* transform: rotate(180deg); */
     /* height: 100%; */
 }

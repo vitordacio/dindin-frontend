@@ -16,13 +16,15 @@ const Avatar = ({ user }) => {
         navigate('/login')
     }
 
+
+
     return (
         <>
-            <div className='avatar'>
+            {user && <div className='avatar'>
                 <img className='pointer' src={avatar} alt='avatar' onClick={() => setEditProfile(true)} />
                 <span>{user.nome}</span>
                 <img className='pointer' src={logout} alt='logout' onClick={(e) => handleLogout(e)} />
-            </div>
+            </div>}
             {editProfile && <EditProfile setEditProfile={setEditProfile} />}
         </>
     )
