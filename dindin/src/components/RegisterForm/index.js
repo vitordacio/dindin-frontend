@@ -89,6 +89,23 @@ const RegisterForm = (props) => {
     }
 
     useEffect(() => {
+        if (!add) {
+            const { tipo, valor, descricao } = transiction
+
+            if (tipo === 'entrada') {
+                handleEntry()
+            }
+
+            setForm({
+                ...form,
+                tipo: tipo === 'entrada' ? 'entrada' : 'saida',
+                valor: valor / 100,
+                descricao: descricao
+            })
+        }
+    }, [])
+
+    useEffect(() => {
         formatForm()
     }, [form])
 
