@@ -18,7 +18,7 @@ const Resume = ({ transictions }) => {
 
     useEffect(() => {
         handleTransictions()
-    }, [extract, transictions])
+    }, [transictions])
 
     return (
         <>

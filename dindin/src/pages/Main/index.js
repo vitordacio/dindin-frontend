@@ -17,28 +17,48 @@ const Main = () => {
     const [transictions, setTransictions] = useState([])
     const [filtering, setFiltering] = useState(false)
 
-    const handleMain = async () => {
-        const token = getItem('token')
+    const token = getItem('token')
+
+    const handleUser = async () => {
         try {
             const { data: user } = await api.get('/usuario', { headers: { 'Authorization': `Bearer ${token}` } })
             setUser(user)
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
-            const { data: category } = await api.get('/categoria', { headers: { 'Authorization': `Bearer ${token}` } })
-            setCategories(category)
+    const handleCategory = async () => {
+        try {
+            const { data: categories } = await api.get('/categoria', { headers: { 'Authorization': `Bearer ${token}` } })
+            setCategories(categories)
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
+    const handleTransictions = async () => {
+        try {
             const { data: transictions } = await api.get('/transacao', { headers: { 'Authorization': `Bearer ${token}` } })
             setTransictions(transictions)
-
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 
     useEffect(() => {
-        if (filtering) return
+        handleUser()
+    }, [user])
 
-        if (!filtering) handleMain()
-    }, [user, transictions, filtering])
+    useEffect(() => {
+        handleCategory()
+    }, [categories])
+
+    useEffect(() => {
+        if (filtering) return
+        handleTransictions()
+    }, [transictions, filtering])
+
 
     return (
         <div className='container'>
@@ -52,22 +72,20 @@ const Main = () => {
                 </div>
 
                 {
-                    openFilter && <Filters setFiltering={setFiltering} filtering={filtering} setTransictions={setTransictions} transictions={transictions} categories={categories} />
+                    openFilter &&
+                    <Filters setFiltering={setFiltering} filtering={filtering} setTransictions={setTransictions} transictions={transictions} categories={categories} />
                 }
 
-                {
-                    categories.length
-                        ?
-                        <div style={{ height: '100%' }} className='flex-center'>
-                            <Table transictions={transictions} categories={categories} />
-                            <div className='resume-container'>
-                                <Resume transictions={transictions} />
-                                <AddRegister categories={categories} />
-                            </div>
-                        </div>
-                        :
-                        ''
-                }
+                <div style={{ height: '100%' }} className='flex-center'>
+
+                    {categories.length && <Table transictions={transictions} categories={categories} />}
+
+                    <div className='resume-container'>
+                        <Resume transictions={transictions} />
+                        <AddRegister categories={categories} />
+                    </div>
+
+                </div>
             </div>
         </div>
     )

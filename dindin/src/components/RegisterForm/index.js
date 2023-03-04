@@ -88,22 +88,24 @@ const RegisterForm = (props) => {
         }
     }
 
-    useEffect(() => {
-        if (!add) {
-            const { tipo, valor, descricao } = transiction
+    // useEffect(() => {
+    //     if (!add) {
+    //         const { tipo,  descricao, data, categoria_nome } = transiction
 
-            if (tipo === 'entrada') {
-                handleEntry()
-            }
+    //         if (tipo === 'entrada') {
+    //             handleEntry()
+    //         }
 
-            setForm({
-                ...form,
-                tipo: tipo === 'entrada' ? 'entrada' : 'saida',
-                valor: valor / 100,
-                descricao: descricao
-            })
-        }
-    }, [])
+    //         setForm({
+    //             ...form,
+    //             tipo: tipo === 'entrada' ? 'entrada' : 'saida',
+    //             valor: valor.toString().slice(0, -2),
+    //             descricao: descricao,
+    //             categoria_id: categoria_nome,
+    //             data: `${data.split('T')[0].split('-')[0]}-${data.split('T')[0].split('-')[1]}-${data.split('T')[0].split('-')[2]}`
+    //         })
+    //     }
+    // }, [])
 
     useEffect(() => {
         formatForm()
@@ -122,7 +124,7 @@ const RegisterForm = (props) => {
                     <label>Valor</label>
                     <input type='number' name='valor' value={form.valor} onChange={(e) => handleForm(e)} />
                     <label>Categoria</label>
-                    <select name="categoria_id" onChange={(e) => handleForm(e)}>
+                    <select name="categoria_id" value={form.categoria_id} onChange={(e) => handleForm(e)}>
                         <option value=""></option>
                         {categories && categories.map((category) => <option key={category.id} value={category.descricao}>{category.descricao}</option>)}
                     </select>

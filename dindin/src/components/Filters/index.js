@@ -8,18 +8,18 @@ const Filters = (props) => {
     const [originalTransictions, setOriginalTransictions] = useState()
     const [filters, setFilters] = useState([])
 
-    const handleColor = (a) => {
-        return filters.find((x) => x === a)
+    const handleColor = (category_id) => {
+        return filters.find((filter_id) => filter_id === category_id)
     }
 
     const handleFilter = () => {
-        const a = transictions.filter((transiction) => {
-            for (let i of filters) {
-                if (transiction.categoria_id === i) return transiction
+        const filtered = transictions.filter((transiction) => {
+            for (let category_id of filters) {
+                if (transiction.categoria_id === category_id) return transiction
             }
         })
 
-        setTransictions(a)
+        setTransictions(filtered)
         setFilters([])
     }
 
@@ -34,7 +34,7 @@ const Filters = (props) => {
         return () => {
             setFiltering(false)
         }
-    }, [filtering])
+    }, [])
 
     return (
         <div className='filters'>

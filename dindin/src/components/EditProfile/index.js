@@ -1,13 +1,22 @@
 import './styles.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import closebtn from '../../assets/closebtn.svg'
 import api from '../../services/api'
 import { getItem } from '../../utils/storage'
 
-const EditProfile = ({ setEditProfile }) => {
+const EditProfile = (props) => {
+    const { user, setEditProfile } = props
     const [form, setForm] = useState({ nome: '', email: '', senha: '' })
     const [confirmPassword, setconfirmPassword] = useState('')
     const [error, setError] = useState('')
+
+    const handleEditing = () => {
+        setForm({
+            ...form,
+            nome: user.nome,
+            email: user.email
+        })
+    }
 
     const handleForm = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -35,6 +44,10 @@ const EditProfile = ({ setEditProfile }) => {
         }
 
     }
+
+    useEffect(() => {
+        handleEditing()
+    }, [])
 
     return (
         <div className='container form-bg' style={{ zIndex: '2' }}>
