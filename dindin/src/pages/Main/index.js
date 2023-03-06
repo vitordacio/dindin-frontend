@@ -63,7 +63,7 @@ const Main = () => {
     return (
         <div className='container'>
             <img src={logo} alt='logo' />
-            <Avatar user={user} />
+            {user && <Avatar user={user} />}
             <div className='top' />
             <div className='main column'>
                 <div className='filter flex-center' onClick={() => setOpenFilter(!openFilter)}>
