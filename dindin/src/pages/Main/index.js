@@ -66,26 +66,25 @@ const Main = () => {
             {user && <Avatar user={user} />}
             <div className='top' />
             <div className='main column'>
-                <div className='filter flex-center' onClick={() => setOpenFilter(!openFilter)}>
+                {/* <div className='filter flex-center' onClick={() => setOpenFilter(!openFilter)}>
                     <img src={filter} alt='filter' />
                     <span>Filtrar</span>
-                </div>
+                </div> */}
 
-                {
+                {/* {
                     openFilter &&
                     <Filters setFiltering={setFiltering} filtering={filtering} setTransictions={setTransictions} transictions={transictions} categories={categories} />
-                }
+                } */}
 
-                <div style={{ height: '100%' }} className='flex-center'>
+                {transictions && <div style={{ height: '100%' }} className='flex-center'>
 
                     {categories.length && <Table transictions={transictions} categories={categories} />}
-
                     <div className='resume-container'>
                         <Resume transictions={transictions} />
                         <AddRegister categories={categories} />
                     </div>
 
-                </div>
+                </div>}
             </div>
         </div>
     )

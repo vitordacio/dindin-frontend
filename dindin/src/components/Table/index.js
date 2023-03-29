@@ -19,6 +19,7 @@ const Table = (props) => {
                     <li style={{ minWidth: '125px' }}>Valor</li>
                     <li style={{ minWidth: '110px' }}></li>
                 </ul>
+
                 {sort ?
                     transictions.sort((a, b) => Date.parse(a.data) - Date.parse(b.data)).map((transiction) =>
                         <TableLine key={transiction.id} categories={categories} transiction={transiction} transictions={transictions} />)

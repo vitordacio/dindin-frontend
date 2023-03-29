@@ -18,7 +18,7 @@ const Resume = ({ transictions }) => {
 
     useEffect(() => {
         handleTransictions()
-    }, [transictions])
+    }, [transictions, extract])
 
     return (
         <>
@@ -36,9 +36,11 @@ const Resume = ({ transictions }) => {
                         <div />
                         <label style={{ fontWeight: '700' }}>Saldo<span style={{ color: `${extract.entrada - extract.saida > 0 ? '#3A9FF1' : '#FF576B'}` }}>
                             {`${((extract.entrada - extract.saida) / 100).toLocaleString("pt-BR", { style: 'currency', currency: 'BRL' })}`}
-                        </span></label>
+                        </span>
+                        </label>
                     </div>
                 </div>
+
             }
         </>
     )
